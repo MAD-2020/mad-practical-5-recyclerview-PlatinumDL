@@ -26,7 +26,8 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoLi
 
         public TodoListViewHolder(View itemView, OnDeleteListener onDeleteListener) {
             super(itemView);
-            txt = itemView.findViewById(android.R.id.text1);
+            txt = itemView.findViewById(R.id.itemtext);
+            check = itemView.findViewById(R.id.checkBox1);
             this.onDeleteListener = onDeleteListener;
 
             itemView.setOnClickListener(this);
@@ -42,7 +43,10 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListAdapter.TodoLi
     public TodoListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
-        View item = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
+        View item = LayoutInflater.from(parent.getContext()).inflate(
+                R.layout.cardview,
+                parent,
+                false);
         TodoListViewHolder viewHolder = new TodoListViewHolder(item, mOnDeleteListener);
 
         return viewHolder;
